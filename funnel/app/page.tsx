@@ -22,10 +22,26 @@ export default function Home() {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/ctc.png" type="image/png" />
         <script async src="https://tally.so/widgets/embed.js"></script>
         <style>{`
           body { background-color: #f9f7ee; }
+          main {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-sizing: border-box;
+          }
+          .relative {
+            width: 100%;
+          }
+          .lottie-container {
+            width: 100%;
+            height: auto;
+            top: -10%;
+          }
           @media (max-width: 768px) {
             main {
               padding: 5vh 5vw;
@@ -41,7 +57,7 @@ export default function Home() {
           }
         `}</style>
       </Head>
-      <main className="flex flex-col items-center justify-center min-h-screen" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>
+      <main className="flex flex-col items-center justify-center min-h-screen">
         {showThankYou && (
           <div className="absolute top-20 bg-white border border-gray-300 shadow-lg p-4 rounded">
             Thank you!
@@ -51,10 +67,10 @@ export default function Home() {
           <div className="flex justify-center p-10">
             <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
           </div>
-          <h1 className="text-4xl font-bold text-[#4a5efb] mb-4">
-            Private Direct Response Newsletter For Aspiring Brand Owners
+          <h1 className="text-3xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
+            Private Direct Response Newsletter For Info-Product Brand Owners
           </h1>
-          <p className="text-lg p-1" style={{ color: 'black' }}>
+          <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
             Enter your main email to receive weekly emails on how to collect more cash with the right words.
           </p>
           <div className="relative mb-10 mt-5">
@@ -67,7 +83,7 @@ export default function Home() {
             <Lottie
               ref={lottieRef}
               animationData={confettiAnimation}
-              style={{ width: 700, height: 700, position: 'absolute', top: '-150px', left: '50%', transform: 'translateX(-50%)', zIndex: -1 }}
+              style={{ width: '100%', height: 'auto', position: 'absolute', top: '-150px', left: '50%', transform: 'translateX(-50%)', zIndex: -1 }}
               loop={false}
               onComplete={() => {
                 lottieRef.current.stop();
