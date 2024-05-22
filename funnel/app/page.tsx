@@ -67,7 +67,7 @@ export default function Home() {
           <div className="flex justify-center p-10">
             <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
           </div>
-          <h1 className="text-3xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
+          <h1 className="text-4xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
             Private Direct Response Newsletter For Info-Product Brand Owners
           </h1>
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
