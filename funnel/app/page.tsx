@@ -68,7 +68,7 @@ export default function Home() {
             <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
           </div>
           <h1 className="text-4xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
-            Private Direct Response Newsletter For Info-Product Brand Owners
+            Private Direct Response Newsletter For Info-Product Owners
           </h1>
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
             Enter your main email to receive weekly emails on how to collect more cash with the right words.
