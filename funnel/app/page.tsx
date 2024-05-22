@@ -7,74 +7,36 @@ import confettiAnimation from '../public/animations/confetti.json';
 
 export default function Home() {
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false); // State to control the visibility of the thank you message
-  const lottieRef = useRef(null);
-  const formRef = useRef(null);
-
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    isServiceProvider: false,
-    isBrandOwner: false,
-  });
+  const [showThankYou, setShowThankYou] = useState(false);
+  const lottieRef = useRef<any>(null);  // Temporarily using 'any' to bypass type issues
+  const formRef = useRef<HTMLDivElement>(null);  // Specify the HTML element type
 
   const handleSignUpClick = () => {
-    if (!hasPlayedOnce) {
+    if (!hasPlayedOnce && lottieRef.current) {
       lottieRef.current.play();
       setHasPlayedOnce(true);
     }
-    formRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxO2p1yyLkySSW5gq7U6kL_orYFIlOpO6IEu9_FoCLQxk6BrsqpjEIZYNm2Uc3l6gvy/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const result = await response.json();
-      console.log('Server response:', result);
-      setShowThankYou(true); // Show thank you message on success
-    } catch (error) {
-      console.error('Failed to submit form:', error);
-      // Optionally handle error (e.g., show error message)
-    }
+    formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
       <Head>
         <link rel="icon" href="/ctc.png" type="image/png" />
+        <script async src="https://tally.so/widgets/embed.js"></script>
         <style>{`
           body { background-color: #f9f7ee; }
           @media (max-width: 768px) {
             main {
-              padding: 5vh 5vw; /* Adjust padding for smaller screens */
+              padding: 5vh 5vw;
             }
             .relative {
-              width: 90%; /* Adjust width for smaller screens */
+              width: 90%;
             }
             .lottie-container {
-              width: 100%; /* Full width on small screens */
-              height: auto; /* Maintain aspect ratio */
-              top: -10%; /* Adjust position */
+              width: 100%;
+              height: auto;
+              top: -10%;
             }
           }
         `}</style>
@@ -86,14 +48,14 @@ export default function Home() {
           </div>
         )}
         <section className="text-center mb-12 relative">
-         <div className="flex justify-center p-10">
-           <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
-         </div>
+          <div className="flex justify-center p-10">
+            <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
+          </div>
           <h1 className="text-4xl font-bold text-[#4a5efb] mb-4">
             Private Direct Response Newsletter For Aspiring Brand Owners
           </h1>
           <p className="text-lg p-1" style={{ color: 'black' }}>
-            Enter your main email to receive weekly emails on how to turn words into cash
+            Enter your main email to receive weekly emails on how to collect more cash with the right words.
           </p>
           <div className="relative mb-10 mt-5">
             <button
@@ -105,9 +67,8 @@ export default function Home() {
             <Lottie
               ref={lottieRef}
               animationData={confettiAnimation}
-              style={{ width: 700, height: 700, position: 'absolute', top: '-150px', left: '50%', transform: 'translateX(-50%)', zIndex: 0 }}
+              style={{ width: 700, height: 700, position: 'absolute', top: '-150px', left: '50%', transform: 'translateX(-50%)', zIndex: -1 }}
               loop={false}
-              autoplay={false}
               onComplete={() => {
                 lottieRef.current.stop();
               }}
@@ -115,7 +76,7 @@ export default function Home() {
             />
           </div>
           <p className="text-lg mb-10" style={{ color: 'black' }}>
-            <strong className="font-bold text-[#4a5efb]">*no spam...just game*</strong>
+            <strong className="font-bold text-[#4a5efb]">*no spam...ever, just game*</strong>
           </p>
         </section>
 
@@ -123,73 +84,17 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-[#4a5efb] mb-10">
             Enter your information below to receive a FREE sign up bonus
           </h2>
-          <form onSubmit={handleSubmit} className="bg-[#e0e7ff] p-8 rounded-lg shadow-md w-full max-w-md mx-auto relative z-20">
-            <div className="mb-4">
-              <label className="block text-left text-lg font-bold mb-2" htmlFor="fullName">
-                Full Name*
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-left text-lg font-bold mb-2" htmlFor="email">
-                Email*
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-left text-lg font-bold mb-2">
-                What service do you offer?*
-              </label>
-              <div className="flex items-center mb-2">
-                <input
-                  type="checkbox"
-                  id="isServiceProvider"
-                  name="isServiceProvider"
-                  checked={formData.isServiceProvider}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                <label htmlFor="isServiceProvider" className="text-left">
-                  I have an info-product /eCom owner
-                </label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="isBrandOwner"
-                  name="isBrandOwner"
-                  checked={formData.isBrandOwner}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                <label htmlFor="isBrandOwner" className="text-left">
-                  I am a copywriter/content creator/agency
-                </label>
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="bg-[#4a5efb] text-white py-4 px-6 rounded shadow-md hover:bg-[#3a4edb] transition duration-300"
-            >
-              Submit
-            </button>
-          </form>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px' }}>
+            <iframe
+              src="https://tally.so/embed/w5dREN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              style={{ width: '100%', maxWidth: '500px', height: '500px', border: 'none' }}
+              loading="lazy"
+              frameBorder={0}
+              marginHeight={0}
+              marginWidth={0}
+              title="Tally Form"
+            ></iframe>
+          </div>
         </section>
       </main>
     </>
