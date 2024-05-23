@@ -7,7 +7,6 @@ import confettiAnimation from '../public/animations/confetti.json';
 
 export default function Home() {
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
   const lottieRef = useRef<any>(null);  // Temporarily using 'any' to bypass type issues
   const formRef = useRef<HTMLDivElement>(null);  // Specify the HTML element type
 
@@ -58,17 +57,12 @@ export default function Home() {
         `}</style>
       </Head>
       <main className="flex flex-col items-center justify-center min-h-screen">
-        {showThankYou && (
-          <div className="absolute top-20 bg-white border border-gray-300 shadow-lg p-4 rounded">
-            Thank you!
-          </div>
-        )}
         <section className="text-center mb-12 relative">
           <div className="flex justify-center p-10">
             <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
           </div>
-          <h1 className="text-4xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
-            Private Direct Response Newsletter For Info-Product Owners
+          <h1 className="text-5xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
+            Private Direct Response Newsletter For B2C Brand Owners
           </h1>
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
             Enter your main email to receive weekly emails on how to collect more cash with the right words.
@@ -83,7 +77,7 @@ export default function Home() {
             <Lottie
               ref={lottieRef}
               animationData={confettiAnimation}
-              style={{ width: '100%', height: 'auto', position: 'absolute', top: '-150px', left: '50%', transform: 'translateX(-50%)', zIndex: -1 }}
+              style={{ width: '100%', height: '700px', position: 'absolute', top: '-150px', left: '50%', transform: 'translateX(-50%)', zIndex: -1 }}
               loop={false}
               onComplete={() => {
                 lottieRef.current.stop();
