@@ -43,7 +43,7 @@ export default function Home() {
           }
           @media (max-width: 768px) {
             main {
-              padding: 5vh 5vw;
+              padding: 5vh 10vw;  // Adjusted padding for tablet and smaller devices
             }
             .relative {
               width: 90%;
@@ -52,6 +52,10 @@ export default function Home() {
               width: 100%;
               height: auto;
               top: -10%;
+            }
+            .text-center h1 {
+              font-size: 20px !important;  // Smaller font size for h1 below tablet size, forced
+              padding: 0 5vw;  // Add padding to the sides
             }
           }
         `}</style>
@@ -62,10 +66,10 @@ export default function Home() {
             <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
           </div>
           <h1 className="text-5xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
-            Private Direct Response Newsletter For B2C Brand Owners
+            Private Direct Response Newsletter For B2C Owners
           </h1>
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
-            Enter your main email to receive weekly emails on how to collect more cash with the right words.
+            Enter your main email to receive weekly emails on how to collect more cash with the right words
           </p>
           <div className="relative mb-10 mt-5">
             <button
