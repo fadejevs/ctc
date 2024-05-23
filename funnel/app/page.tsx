@@ -69,7 +69,7 @@ export default function Home() {
             Private Direct Response Newsletter For B2C Owners
           </h1>
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
-            Enter your main email to receive weekly emails on how to collect more cash with the right words
+            Enter your best email to receive weekly tips from Ralfs on how you can collect more cash with the right words
           </p>
           <div className="relative mb-10 mt-5">
             <button
