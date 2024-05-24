@@ -24,6 +24,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/ctc.png" type="image/png" />
         <script async src="https://tally.so/widgets/embed.js"></script>
+        <meta property="og:image" content="/cover.png" />
+        <meta name="twitter:image" content="/cover.png" />
         <style>{`
           body { background-color: #f9f7ee; }
           main {
