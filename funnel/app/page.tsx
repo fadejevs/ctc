@@ -24,7 +24,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/ctc.png" type="image/png" />
         <script async src="https://tally.so/widgets/embed.js"></script>
+        <meta property="og:title" content="Private Direct Response Newsletter For Brand Owners" />
+        <meta property="og:description" content="Enter your best email to receive weekly insights on how you can collect more cash with the right words" />
         <meta property="og:image" content="/cover.png" />
+        <meta property="og:url" content="https://cashtocollect.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Private Direct Response Newsletter For Brand Owners" />
+        <meta name="twitter:description" content="Enter your best email to receive weekly insights on how you can collect more cash with the right words" />
         <meta name="twitter:image" content="/cover.png" />
         <style>{`
           body { background-color: #f9f7ee; }
