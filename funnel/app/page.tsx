@@ -61,9 +61,11 @@ export default function Home() {
               height: auto;
               top: -10%;
             }
+            .text-center h1, .text-center h4, .text-center p, .text-center div, .text-center button {
+              padding: 0 5vw;  // Add padding to the sides for all text elements
+            }
             .text-center h1 {
               font-size: 20px !important;  // Smaller font size for h1 below tablet size, forced
-              padding: 0 5vw;  // Add padding to the sides
             }
           }
         `}</style>
@@ -73,11 +75,20 @@ export default function Home() {
           <div className="flex justify-center p-10">
             <Image src="/ctc.png" alt="CTC Image" width={100} height={100} />
           </div>
-          <h1 className="text-5xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
+          <h1 className="text-3xl md:text-5xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
             Private Direct Response Newsletter For Brand Owners
           </h1>
+          {/* <h4 className="text-2xl md:text-3xl mt-10 mx-auto md:w-3/5">
+           Would You Like Me To <i><u>Personally</u></i> Double, or Even Triple Your Open Rates
+          </h4>
+          <h4 className="text-2xl md:text-3xl mb-4 mx-auto md:w-3/5">
+            ...For <strong>Free?</strong>
+          </h4> */}
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
-            Enter your best email to receive weekly insights on how you can collect more cash with the right words
+            Enter your best email to receive weekly letters on how you can collect more cash with the right words
+          </p>
+          <p className="text-lg mb-4" style={{ color: 'black' }}>
+            <strong className="font-bold text-[#4a5efb]">*no spam...ever, just game*</strong>
           </p>
           <div className="relative mb-10 mt-5">
             <button
@@ -97,15 +108,9 @@ export default function Home() {
               className="lottie-container"
             />
           </div>
-          <p className="text-lg mb-10" style={{ color: 'black' }}>
-            <strong className="font-bold text-[#4a5efb]">*no spam...ever, just game*</strong>
-          </p>
         </section>
 
         <section className="text-center mb-12" ref={formRef}>
-          <h2 className="text-3xl font-bold text-[#4a5efb] mb-10">
-            Enter your information below to receive a FREE sign up bonus
-          </h2>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px' }}>
             <iframe
               src="https://tally.so/embed/w5dREN?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
@@ -122,4 +127,5 @@ export default function Home() {
     </>
   );
 }
+
 
