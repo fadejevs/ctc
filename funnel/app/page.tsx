@@ -67,6 +67,35 @@ export default function Home() {
             .text-center h1 {
               font-size: 20px !important;  // Smaller font size for h1 below tablet size, forced
             }
+            .testimonial-container {
+              flex-direction: column;
+              align-items: center;
+            }
+            .testimonial-image {
+              transform: none; // Remove rotation on smaller screens
+              margin: 10px 0; // Stack images vertically with space between
+            }
+          }
+          .line-through {
+            text-decoration: line-through;
+          }
+          .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: auto;
+            min-height: 400px; // Ensure container has height to allow overlap
+          }
+          .testimonial-image {
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: ${Math.random() * 80 + 10}%;
+            top: ${Math.random() * 60 + 20}%;
           }
         `}</style>
       </Head>
@@ -78,19 +107,13 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl font-bold text-[#4a5efb] mb-4 mx-auto md:w-3/5">
             Private Direct Response Newsletter For Brand Owners
           </h1>
-          {/* <h4 className="text-2xl md:text-3xl mt-10 mx-auto md:w-3/5">
-           Would You Like Me To <i><u>Personally</u></i> Double, or Even Triple Your Open Rates
-          </h4>
-          <h4 className="text-2xl md:text-3xl mb-4 mx-auto md:w-3/5">
-            ...For <strong>Free?</strong>
-          </h4> */}
           <p className="text-lg p-4 mx-auto md:w-3/5" style={{ color: 'black' }}>
             Enter your best email to receive weekly letters on how you can collect more cash with the right words
           </p>
-          <p className="text-lg mb-4" style={{ color: 'black' }}>
-            <strong className="font-bold text-[#4a5efb]">*no spam...ever, just game*</strong>
+          <p className="text-lg mb-4 mt-3" style={{ color: 'black' }}>
+            <strong className="font-bold text-[#4a5efb]">*no spam...ever, just value*</strong>
           </p>
-          <div className="relative mb-10 mt-5">
+          <div className="relative mb-10 mt-10">
             <button
               className="bg-[#4a5efb] text-white py-4 px-6 rounded shadow-md hover:bg-[#3a4edb] transition duration-300 relative z-10"
               onClick={handleSignUpClick}
@@ -109,6 +132,17 @@ export default function Home() {
             />
           </div>
         </section>
+          <div className="testimonial-container mb-20">
+            <div className="flex flex-wrap justify-center">
+              <Image src="/testimonials/1.jpeg" alt="testimonial" width={300} height={100} className="testimonial-image" style={{ transform: `rotate(${Math.random() * 10 - 5}deg)` }}/>
+              <Image src="/testimonials/3.png" alt="testimonial" width={600} height={100} className="testimonial-image" style={{ transform: `rotate(${Math.random() * 10 - 5}deg)` }}/>
+            </div>
+            <div className="flex flex-wrap justify-center">
+              <Image src="/testimonials/4.png" alt="testimonial" width={400} height={200} className="testimonial-image" style={{ transform: `rotate(${Math.random() * 10 - 5}deg)` }}/>
+              <Image src="/testimonials/5.png" alt="testimonial" width={500} height={100} className="testimonial-image" style={{ transform: `rotate(${Math.random() * 10 - 5}deg)` }}/>
+              <Image src="/testimonials/6.png" alt="testimonial" width={300} height={200} className="testimonial-image" style={{ transform: `rotate(${Math.random() * 10 - 5}deg)` }}/>
+            </div>
+          </div>
 
         <section className="text-center mb-12" ref={formRef}>
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '500px' }}>
